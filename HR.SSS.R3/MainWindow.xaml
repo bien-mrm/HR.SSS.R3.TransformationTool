@@ -5,29 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HR.SSS.R3"
         mc:Ignorable="d"
-        Title="SSS R3 File Transformation Tool" Height="390.833" Width="627.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="records.png">
-    <Grid Height="361" VerticalAlignment="Top" HorizontalAlignment="Left" Width="530">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="92*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="TxtInputFile" HorizontalAlignment="Left" Height="24" Margin="20,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" Grid.Column="1"/>
-        <Label Content="Source Excel File:" HorizontalAlignment="Left" Margin="24,76,0,0" VerticalAlignment="Top" Height="26" Width="105" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnBrowseInput" Content="Browse..." Margin="0,81,-46,0" Click="BtnBrowseInput_Click" Grid.Column="1" Width="80" HorizontalAlignment="Right" Height="24" VerticalAlignment="Top"/>
-        <Label Content="SSS R3 File Transformation Tool&#xD;&#xA;" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" Height="38" FontWeight="Bold" FontSize="18" Width="295" Grid.Column="1"/>
-        <Label Content="Output Location:" HorizontalAlignment="Left" Margin="24,118,0,0" VerticalAlignment="Top" Height="26" Width="105" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TxtOutputFile" HorizontalAlignment="Left" Height="24" Margin="20,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" Grid.Column="1"/>
-        <Button x:Name="BtnGenerate" Content="Generate SSS R3 File" HorizontalAlignment="Left" Margin="20,207,0,0" VerticalAlignment="Top" Width="338" Click="BtnGenerate_Click" Grid.Column="1" Height="29" IsCancel="True" FontWeight="Bold"/>
-        <Label Content="Employer Name:" HorizontalAlignment="Left" Margin="24,161,0,0" VerticalAlignment="Top" Height="26" Width="105" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TxtEmployerName" HorizontalAlignment="Left" Height="24" Margin="20,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" Grid.Column="1"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="71" Margin="20,252,0,-53" Stroke="#FFA0A0A0" VerticalAlignment="Top" Width="338" Grid.Column="1"/>
-        <Label Content="Total Number of Employees:" HorizontalAlignment="Left" Margin="28,257,0,-19" VerticalAlignment="Top" Height="32" Width="168" Grid.Column="1" Opacity="0.5"/>
-        <Label Content="Total Amount Computed:" HorizontalAlignment="Left" Margin="28,284,0,-46" VerticalAlignment="Top" Height="32" Width="168" Grid.Column="1" Opacity="0.5"/>
-        <Label x:Name="LblEmployeesCount" Content="" HorizontalAlignment="Left" Margin="190,257,0,-13" VerticalAlignment="Top" Height="26" Width="168" Grid.Column="1"/>
-        <Label x:Name="LblTotalAmount" Content="" HorizontalAlignment="Left" Margin="190,284,0,-40" VerticalAlignment="Top" Height="26" Width="168" Grid.Column="1"/>
-        <Label Content="Transforms Excel File to a format compliant for SSS R3 submission" HorizontalAlignment="Left" Margin="20,31,0,0" VerticalAlignment="Top" FontSize="11" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="47" Margin="82,9,0,0" VerticalAlignment="Top" Width="44" Source="records.png" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnSpecifyOutput" Content="Specify..." HorizontalAlignment="Right" Margin="0,120,-46,0" Width="80" Click="Button_Click" Grid.Column="1" Height="24" VerticalAlignment="Top"/>
-
-    </Grid>
+        Title="SSS R3 File Transformation Tool v1.0.0" Height="394" Width="711" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="records.png">
+    <Canvas HorizontalAlignment="Left" Width="717" Margin="0,0,-17,1">
+        <TextBox x:Name="TxtInputFile" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Canvas.Left="138" Canvas.Top="92" RenderTransformOrigin="0.5,0.5" TextAlignment="Justify"/>
+        <Label Content="Source Excel File:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="105" Canvas.Left="29" Canvas.Top="87"/>
+        <Button x:Name="BtnBrowseInput" Content="Browse..." Click="BtnBrowseInput_Click" Width="80" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Canvas.Left="589" Canvas.Top="92"/>
+        <Label Content="SSS R3 File Transformation Tool&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="38" FontWeight="Bold" FontSize="18" Width="295" Canvas.Left="138" Canvas.Top="18"/>
+        <Label Content="Output File Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="105" Canvas.Left="29" Canvas.Top="129"/>
+        <TextBox x:Name="TxtOutputFileName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="436" Canvas.Left="138" Canvas.Top="131"/>
+        <Button x:Name="BtnGenerate" Content="Generate SSS R3 File" VerticalAlignment="Top" Click="BtnGenerate_Click" Height="40" IsCancel="True" FontWeight="Bold" HorizontalAlignment="Right" Width="436" Canvas.Left="138" Canvas.Top="211"/>
+        <Label Content="Employer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="105" Canvas.Left="29" Canvas.Top="172"/>
+        <TextBox x:Name="TxtEmployerName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="436" Canvas.Left="138" Canvas.Top="174"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="37" Stroke="#FFA0A0A0" VerticalAlignment="Top" Width="436" Canvas.Left="138" Canvas.Top="263"/>
+        <Label Content="Total Number of Employees:" HorizontalAlignment="Right" Width="170" Opacity="0.5" Height="32" VerticalAlignment="Top" Canvas.Left="146" Canvas.Top="268"/>
+        <Label Content="Total Amount:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="86" Opacity="0.5" Canvas.Left="337" Canvas.Top="268"/>
+        <Label x:Name="LblEmployeesCount" Content="" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="33" Canvas.Left="303" Canvas.Top="268"/>
+        <Label x:Name="LblTotalAmount" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="147" Canvas.Left="427" Canvas.Top="268"/>
+        <Label Content="Transforms an Excel File to a format compliant for SSS R3 submission" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="11" Height="25" Width="350" Canvas.Left="138" Canvas.Top="42"/>
+        <Image HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="44" Source="records.png" Canvas.Left="81" Canvas.Top="20"/>
+        <Label Content="© Copyright. SSSR3FTT v1.0.0 BAR 2022" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="185" Canvas.Left="267" Canvas.Top="323" Opacity="0.5" FontSize="10"/>
+    </Canvas>
 </Window>
