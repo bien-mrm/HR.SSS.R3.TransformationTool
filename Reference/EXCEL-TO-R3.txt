@@ -1,0 +1,51 @@
+REQUIREMENTS
+======================================================================
+
+COMPANY NAME:
+- All Uppercase
+
+DATE:
+- Prepend "Date: "
+- Append Date (MMMDDYYYY)
+
+
+FAMILY NAME COLUMN:
+- 15 CHARS are allowed
+- All Uppercase
+- Plus 1 space character
+- Special Characters
+	- ñ => N
+	- Detect lower to Upper character, translate to prepend dash
+		- e.g. "AbrogueñaCeniza" => ABROGUENA-CENIZ
+
+GIVEN NAME COLUMN:
+- 15 Chars allowed
+- Plus 1 space character
+- All Uppercase
+
+MI COLUMN:
+- Copy as is
+- Convert to Uppercase
+
+SS NUMBER:
+- Copy as is
+- Insert a dash on index 2 and 10
+
+S.S. COLUMN:
+- Copy as is
+
+E.C. COLUMN:
+- Copy as is
+
+REMRK COLUMN:
+- Copy as is
+
+DTHRD COLLUMN:
+- Copy as is
+
+TOTAL NUMBER OF EMPLOYEES:
+- Prepend "Total Number of Employees: "
+- Append Excel Count
+
+FILE NAME:
+- EMPLOYEE_LIST.txt
