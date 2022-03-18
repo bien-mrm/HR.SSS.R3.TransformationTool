@@ -27,16 +27,22 @@ namespace HR.SSS.R3.Processors
                 // Create a new file     
                 using (StreamWriter sw = File.CreateText(outputFile))
                 {
-                    EmployerNameTransformer employerNameTransformer = new EmployerNameTransformer();
-                    sw.Write(employerNameTransformer.TransformField(r3Session));
+                    EmployerNameTransformer employerNameTransformer = new EmployerNameTransformer(r3Session);
+                    sw.Write(employerNameTransformer.TransformField());
 
-                    EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer();
-                    sw.WriteLine(employerNumberTransformer.TransformField(r3Session));
+                    EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer(r3Session);
+                    sw.WriteLine(employerNumberTransformer.TransformField());
 
                     DateTransformer dateTransformer = new DateTransformer();
                     sw.WriteLine(dateTransformer.TransformString());
+                    sw.WriteLine();
 
-                    sw.WriteLine("Author: Mahesh Chand");
+                    foreach (var r3Record in r3Session.R3Records)
+                    {
+                        FamilyNameTransformer familyNameTransformer = new FamilyNameTransformer(r3Session);
+                        //sw.WriteLine(familyNameTransformer.TransformField(r3Record.FamilyName));
+                    }
+                    
                     sw.WriteLine("Add one more line ");
                     sw.WriteLine("Add one more line ");
                     sw.WriteLine("Done! ");
