@@ -16,6 +16,10 @@ namespace HR.SSS.R3.Models
 
         public string EmployerName { get; set; }
 
+        public string EmployerNumber { get; set; }
+
+        public string ApplicablePeriod { get; set; }
+
         public List<R3Record> R3Records { get; set; }
 
     }

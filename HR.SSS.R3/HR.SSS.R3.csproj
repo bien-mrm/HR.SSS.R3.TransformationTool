@@ -87,7 +87,9 @@
   <ItemGroup>
     <Compile Include="Models\R3Record.cs" />
     <Compile Include="Models\R3SessionContainer.cs" />
+    <Compile Include="Processors\Interfaces\IFieldTransformer.cs" />
     <Compile Include="Processors\R3ExcelFileProcessor.cs" />
+    <Compile Include="Processors\R3OutputFileProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -118,7 +120,7 @@
     <Resource Include="records.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Processors\Interfaces\" />
+    <Folder Include="Processors\Transformers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

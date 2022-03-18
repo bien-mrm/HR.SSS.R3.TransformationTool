@@ -9,7 +9,7 @@ namespace HR.SSS.R3.Processors
 {
     public static class R3ExcelFileProcessor
     {
-        public static void InitializeR3Records(R3SessionContainer r3Session)
+        public static void CaptureExcelRecords(R3SessionContainer r3Session)
         {
             try
             {
@@ -57,8 +57,6 @@ namespace HR.SSS.R3.Processors
                             DateHired = dateHired
                         });
                     }
-
-                    Console.WriteLine(r3Session.R3Records);
                 }
             }
             catch (InvalidOperationException ioe)

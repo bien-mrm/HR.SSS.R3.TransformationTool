@@ -24,9 +24,9 @@ namespace HR.SSS.R3
         {
             if (this.SetupSessionValues())
             {
-                R3ExcelFileProcessor.InitializeR3Records(R3Session);
+                R3ExcelFileProcessor.CaptureExcelRecords(R3Session);
+                R3OutputFileProcessor.CreateOutputFile(R3Session);
             }
-
         }
 
         private bool SetupSessionValues()
@@ -73,6 +73,29 @@ namespace HR.SSS.R3
             else
             {
                 R3Session.EmployerName = TxtEmployerName.Text;
+            }
+
+            if (String.IsNullOrEmpty(TxtEmployerNumber.Text))
+            {
+                MessageBox.Show("Please specify the Employer Number.", "Unspecified Employer Number",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else
+            {
+                R3Session.EmployerNumber = TxtEmployerNumber.Text;
+            }
+
+
+            if (String.IsNullOrEmpty(TxtApplicablePeriod.Text))
+            {
+                MessageBox.Show("Please specify the Applicable Period.", "Unspecified Applicable Period",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else
+            {
+                R3Session.ApplicablePeriod = TxtApplicablePeriod.Text;
             }
 
             R3Session.IsHeaderPresent = ChkIsHeaderPresent.IsChecked.Value;
