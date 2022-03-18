@@ -1,6 +1,7 @@
 ﻿using HR.SSS.R3.Constants;
 using HR.SSS.R3.Processors.Abstracts;
 using HR.SSS.R3.Processors.Interfaces;
+using HR.SSS.R3.Utilities;
 using System.Text;
 
 namespace HR.SSS.R3.Processors.FieldTransformers
@@ -43,7 +44,7 @@ namespace HR.SSS.R3.Processors.FieldTransformers
             }
 
             // Remember to add an extra space as column separation
-            return $"{ middleInitialFinal } ";
+            return $"{ middleInitialFinal.ReplaceNcharacters() } ";
         }
     }
 }

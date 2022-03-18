@@ -7,7 +7,7 @@ namespace HR.SSS.R3.Processors.StringTransformers
     {
         public string TransformString()
         {
-            return $"Date: { DateTime.Now.ToString("MMddyy") }";
+            return $"Date: { DateTime.Now.ToString("MMM dd, yyyy") }";
         }
     }
 }

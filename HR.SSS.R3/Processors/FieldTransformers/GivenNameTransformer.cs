@@ -1,6 +1,7 @@
 ﻿using HR.SSS.R3.Constants;
 using HR.SSS.R3.Processors.Abstracts;
 using HR.SSS.R3.Processors.Interfaces;
+using HR.SSS.R3.Utilities;
 using System.Text;
 
 namespace HR.SSS.R3.Processors.FieldTransformers
@@ -22,15 +23,15 @@ namespace HR.SSS.R3.Processors.FieldTransformers
 
 
             // Truncate if more than max length
-            if (givenNameFieldLength > OutputFileConstants.MiddleInitialMaxLength)
+            if (givenNameFieldLength > OutputFileConstants.GivenNameMaxLength)
             {
-                givenNameFinal = givenNameFinal.Substring(0, OutputFileConstants.MiddleInitialMaxLength);
+                givenNameFinal = givenNameFinal.Substring(0, OutputFileConstants.GivenNameMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (givenNameFieldLength < OutputFileConstants.MiddleInitialMaxLength)
+            else if (givenNameFieldLength < OutputFileConstants.GivenNameMaxLength)
             {
-                int difference = OutputFileConstants.MiddleInitialMaxLength - givenNameFieldLength;
+                int difference = OutputFileConstants.GivenNameMaxLength - givenNameFieldLength;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(givenNameFinal);
 
@@ -43,7 +44,7 @@ namespace HR.SSS.R3.Processors.FieldTransformers
             }
 
             // Remember to add an extra space as column separation
-            return $"{ givenNameFinal } ";
+            return $"{ givenNameFinal.ReplaceNcharacters() } ";
         }
     }
 }

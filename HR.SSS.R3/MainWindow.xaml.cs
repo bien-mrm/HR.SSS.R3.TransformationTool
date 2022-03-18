@@ -144,7 +144,10 @@ namespace HR.SSS.R3
                 totalAmount += Convert.ToDouble(r3Record.SssContribution);
             }
 
+            LblEmployeesCountLabel.Opacity = 100;
             LblEmployeesCount.Content = R3Session.R3Records.Count;
+
+            LblTotalAmountLabel.Opacity = 100;
             LblTotalAmount.Content = totalAmount;
 
             this.OpenOutputFile();

@@ -82,6 +82,7 @@
     <Compile Include="Processors\StringTransformers\HeaderTransformer.cs" />
     <Compile Include="Processors\StringTransformers\DateTransformer.cs" />
     <Compile Include="Utilities\Randomizer.cs" />
+    <Compile Include="Utilities\StringSanitizer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

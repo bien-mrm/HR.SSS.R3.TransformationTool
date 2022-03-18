@@ -6,7 +6,9 @@
 
         public static int FamilyNameMaxLength => 15;
 
-        public static int MiddleInitialMaxLength => 15;
+        public static int GivenNameMaxLength => 15;
+
+        public static int MiddleInitialMaxLength => 3;
 
         public static int SssNumberMaxLength => 14;
 

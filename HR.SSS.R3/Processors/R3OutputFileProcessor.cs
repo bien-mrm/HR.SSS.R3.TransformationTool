@@ -33,11 +33,12 @@ namespace HR.SSS.R3.Processors
                     EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer(r3Session);
                     sw.WriteLine(employerNumberTransformer.TransformField());
 
-                    HeaderTransformer headerTransformer = new HeaderTransformer();
-                    sw.WriteLine(headerTransformer.TransformString());
-
                     DateTransformer dateTransformer = new DateTransformer();
                     sw.WriteLine(dateTransformer.TransformString());
+                    sw.WriteLine();
+
+                    HeaderTransformer headerTransformer = new HeaderTransformer();
+                    sw.WriteLine(headerTransformer.TransformString());
                     sw.WriteLine();
 
                     foreach (var r3Record in r3Session.R3Records)
@@ -69,8 +70,6 @@ namespace HR.SSS.R3.Processors
                         sw.WriteLine();
                     }
                 }
-                
-
             }
             catch (Exception Ex)
             {

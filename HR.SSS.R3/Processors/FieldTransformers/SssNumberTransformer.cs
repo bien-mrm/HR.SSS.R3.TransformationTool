@@ -24,7 +24,7 @@ namespace HR.SSS.R3.Processors.FieldTransformers
             // Convert to uppercase
             string sssNumberFinal = this.SssNumber.Insert(2, "-");
             sssNumberFinal = sssNumberFinal.Insert(9, "-");
-            var sssNumberFieldLength = this.SssNumber.Length;
+            var sssNumberFieldLength = sssNumberFinal.Length;
 
 
             // Truncate if more than max length

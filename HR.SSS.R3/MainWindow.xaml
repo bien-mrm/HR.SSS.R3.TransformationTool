@@ -17,8 +17,8 @@
         <Label Content="Employer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="105" Canvas.Left="38" Canvas.Top="210"/>
         <TextBox x:Name="TxtEmployerName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="436" Canvas.Left="148" Canvas.Top="212" Text="DIVERSIFY ISS BGC INC."/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="37" Stroke="#FFA0A0A0" VerticalAlignment="Top" Width="436" Canvas.Left="148" Canvas.Top="383"/>
-        <Label Content="Total Number of Employees:" HorizontalAlignment="Right" Width="170" Opacity="0.5" Height="32" VerticalAlignment="Top" Canvas.Left="156" Canvas.Top="388"/>
-        <Label Content="Total Amount:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="86" Opacity="0.5" Canvas.Left="361" Canvas.Top="388"/>
+        <Label x:Name="LblEmployeesCountLabel" Content="Total Number of Employees:" HorizontalAlignment="Right" Width="170" Opacity="0.5" Height="32" VerticalAlignment="Top" Canvas.Left="156" Canvas.Top="388"/>
+        <Label x:Name="LblTotalAmountLabel" Content="Total Amount:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="86" Opacity="0.5" Canvas.Left="361" Canvas.Top="388"/>
         <Label x:Name="LblEmployeesCount" Content="" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="43" Canvas.Left="313" Canvas.Top="388"/>
         <Label x:Name="LblTotalAmount" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="137" Canvas.Left="447" Canvas.Top="388"/>
         <Label Content="Transforms an Excel File to a format compliant for SSS R3 submission" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="11" Height="25" Width="350" Canvas.Left="144" Canvas.Top="42"/>
@@ -32,7 +32,7 @@
         <TextBox x:Name="TxtEmployerNumber" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="148" Canvas.Top="252" Text="0395218183"/>
         <Label Content="Applicable Period:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="109" Canvas.Left="34" Canvas.Top="290"/>
         <TextBox x:Name="TxtApplicablePeriod" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="148" Canvas.Top="292" Text="031822"/>
-        <Label Content="Input without dashes" Canvas.Left="437" Canvas.Top="250"/>
-        <Label Content="Format: MMDDYY" Canvas.Left="437" Canvas.Top="290"/>
+        <Label Content="Input without the dashes" Canvas.Left="437" Canvas.Top="250"/>
+        <Label Content="Date Format: MMddyy" Canvas.Left="437" Canvas.Top="290"/>
     </Canvas>
 </Window>
