@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace HR.SSS.R3.Models
 {
@@ -10,11 +6,17 @@ namespace HR.SSS.R3.Models
     {
         public string InputFile { get; set; }
 
+        public string InputSheetName { get; set; }
+
+        public bool IsHeaderPresent { get; set; }
+
         public string InputDirectory { get; set; }
 
         public string OutputFileName { get; set; }
 
         public string EmployerName { get; set; }
+
+        public List<R3Record> R3Records { get; set; }
 
     }
 }
