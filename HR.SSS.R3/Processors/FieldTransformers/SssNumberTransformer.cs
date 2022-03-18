@@ -18,7 +18,7 @@ namespace HR.SSS.R3.Processors.FieldTransformers
         {
             if (this.SssNumber == null)
             {
-                return "                 ";
+                return "               ";
             }
 
             // Convert to uppercase

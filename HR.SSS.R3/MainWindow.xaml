@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:HR.SSS.R3"
         mc:Ignorable="d"
         Title="SSS R3 File Transformation Tool v1.0.0" Height="521" Width="720" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="records.png">
-    <Canvas HorizontalAlignment="Left" Width="717" Margin="0,0,-17,1">
-        <TextBox x:Name="TxtInputFile" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Canvas.Left="148" Canvas.Top="92" RenderTransformOrigin="0.5,0.5" TextAlignment="Justify" IsReadOnly="True"/>
+    <Canvas HorizontalAlignment="Left" Width="717" Margin="0,0,-17,1" Opacity="0.8">
+        <TextBox x:Name="TxtInputFile" Padding="2" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Canvas.Left="148" Canvas.Top="92" RenderTransformOrigin="0.5,0.5" TextAlignment="Justify" IsReadOnly="True"/>
         <Label Content="Source Excel File:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="101" Canvas.Left="38" Canvas.Top="87"/>
         <Button x:Name="BtnBrowseInput" Content="Browse..." Click="BtnBrowseInput_Click" Width="80" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Canvas.Left="596" Canvas.Top="92"/>
         <Label Content="SSS R3 File Transformation Tool&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="38" FontWeight="Bold" FontSize="18" Width="295" Canvas.Left="144" Canvas.Top="18"/>
-        <Label Content="Output File Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="116" Canvas.Left="29" Canvas.Top="169"/>
-        <TextBox x:Name="TxtOutputFileName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="436" Canvas.Left="148" Canvas.Top="171" Text="Employee_List.txt"/>
-        <Button x:Name="BtnGenerate" Content="Generate SSS R3 Output File" VerticalAlignment="Top" Click="BtnGenerate_Click" Height="40" IsCancel="True" FontWeight="Bold" HorizontalAlignment="Right" Width="436" Canvas.Left="148" Canvas.Top="331"/>
-        <Label Content="Employer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="105" Canvas.Left="38" Canvas.Top="210"/>
-        <TextBox x:Name="TxtEmployerName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="436" Canvas.Left="148" Canvas.Top="212" Text="DIVERSIFY ISS BGC INC."/>
+        <Label Content="Output File Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="116" Canvas.Left="29" Canvas.Top="289"/>
+        <TextBox x:Name="TxtOutputFileName" Padding="2" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="436" Canvas.Left="148" Canvas.Top="291" Text="" IsReadOnly="True" Background="#FFEEEEEE" Foreground="Black" FontWeight="Bold"/>
+        <Button x:Name="BtnGenerate" Content="Generate SSS R3 Output File" VerticalAlignment="Top" Click="BtnGenerate_Click" Height="40" IsCancel="True" FontWeight="Bold" HorizontalAlignment="Right" Width="436" Canvas.Left="148" Canvas.Top="331" FontSize="14"/>
+        <Label Content="Employer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="105" Canvas.Left="38" Canvas.Top="169"/>
+        <TextBox x:Name="TxtEmployerName" Padding="2" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="436" Canvas.Left="148" Canvas.Top="171" Text=""/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="37" Stroke="#FFA0A0A0" VerticalAlignment="Top" Width="436" Canvas.Left="148" Canvas.Top="383"/>
         <Label x:Name="LblEmployeesCountLabel" Content="Total Number of Employees:" HorizontalAlignment="Right" Width="170" Opacity="0.5" Height="32" VerticalAlignment="Top" Canvas.Left="156" Canvas.Top="388"/>
         <Label x:Name="LblTotalAmountLabel" Content="Total Amount:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="86" Opacity="0.5" Canvas.Left="361" Canvas.Top="388"/>
@@ -25,14 +25,14 @@
         <Image HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="44" Source="records.png" Canvas.Left="86" Canvas.Top="20"/>
         <Label Content="© Copyright. SSSR3FTT v1.0.0 BAR 2022" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="185" Canvas.Left="277" Canvas.Top="443" Opacity="0.5" FontSize="10"/>
         <Button x:Name="BtnClose" Content="Close" Click="BtnClose_Click" Width="80" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Canvas.Left="596" Canvas.Top="383"/>
-        <TextBox x:Name="TxtSheetName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Canvas.Left="148" Canvas.Top="132" RenderTransformOrigin="0.5,0.5" TextAlignment="Justify" Text="Employees"/>
+        <TextBox x:Name="TxtSheetName" Padding="2" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Canvas.Left="148" Canvas.Top="132" RenderTransformOrigin="0.5,0.5" TextAlignment="Justify" Text="Employees"/>
         <Label Content="Source Sheet Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="116" Canvas.Left="20" Canvas.Top="127"/>
         <CheckBox x:Name="ChkIsHeaderPresent" Content="Header row is present" Canvas.Left="447" Canvas.Top="134" IsChecked="True"/>
-        <Label Content="Employer Number:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="114" Canvas.Left="29" Canvas.Top="250"/>
-        <TextBox x:Name="TxtEmployerNumber" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="148" Canvas.Top="252" Text="0395218183"/>
-        <Label Content="Applicable Period:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="109" Canvas.Left="34" Canvas.Top="290"/>
-        <TextBox x:Name="TxtApplicablePeriod" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="148" Canvas.Top="292" Text="031822"/>
-        <Label Content="Input without the dashes" Canvas.Left="437" Canvas.Top="250"/>
-        <Label Content="Date Format: MMddyy" Canvas.Left="437" Canvas.Top="290"/>
+        <Label Content="Employer Number:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="114" Canvas.Left="29" Canvas.Top="209"/>
+        <TextBox x:Name="TxtEmployerNumber" Padding="2" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="148" Canvas.Top="211" Text=""/>
+        <Label Content="Applicable Period:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="109" Canvas.Left="34" Canvas.Top="249"/>
+        <TextBox x:Name="TxtApplicablePeriod" Padding="2" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="148" Canvas.Top="251" Text=""/>
+        <Label Content="Do not include the dashes" Canvas.Left="437" Canvas.Top="209" Opacity="0.8"/>
+        <Label Content="Date Format: MMddyy" Canvas.Left="437" Canvas.Top="249" Opacity="0.8"/>
     </Canvas>
 </Window>

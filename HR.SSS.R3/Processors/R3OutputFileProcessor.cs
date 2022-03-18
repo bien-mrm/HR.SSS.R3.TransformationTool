@@ -2,11 +2,7 @@
 using HR.SSS.R3.Processors.FieldTransformers;
 using HR.SSS.R3.Processors.StringTransformers;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.SSS.R3.Processors
 {
@@ -30,7 +26,7 @@ namespace HR.SSS.R3.Processors
                     EmployerNameTransformer employerNameTransformer = new EmployerNameTransformer(r3Session.EmployerName);
                     sw.Write(employerNameTransformer.TransformField());
 
-                    EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer(r3Session);
+                    EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer(r3Session.OutputFileName);
                     sw.WriteLine(employerNumberTransformer.TransformField());
 
                     DateTransformer dateTransformer = new DateTransformer();

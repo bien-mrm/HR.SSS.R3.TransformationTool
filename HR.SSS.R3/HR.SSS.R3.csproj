@@ -81,6 +81,7 @@
     <Compile Include="Processors\Interfaces\IStringTransformable.cs" />
     <Compile Include="Processors\StringTransformers\HeaderTransformer.cs" />
     <Compile Include="Processors\StringTransformers\DateTransformer.cs" />
+    <Compile Include="Utilities\RandomCodeGenerator.cs" />
     <Compile Include="Utilities\Randomizer.cs" />
     <Compile Include="Utilities\StringSanitizer.cs" />
     <Page Include="MainWindow.xaml">

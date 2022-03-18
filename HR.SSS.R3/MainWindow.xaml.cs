@@ -1,10 +1,12 @@
 ﻿using HR.SSS.R3.Models;
 using HR.SSS.R3.Processors;
+using HR.SSS.R3.Utilities;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Media;
 
 namespace HR.SSS.R3
 {
@@ -56,17 +58,6 @@ namespace HR.SSS.R3
                 R3Session.InputSheetName = TxtSheetName.Text;
             }
 
-            if (String.IsNullOrEmpty(TxtOutputFileName.Text))
-            {
-                MessageBox.Show("Please specify the name of your output R3 file.", "Unspecified Output File Name", 
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
-            else
-            {
-                R3Session.OutputFileName = TxtOutputFileName.Text;
-            }
-
             if (String.IsNullOrEmpty(TxtEmployerName.Text))
             {
                 MessageBox.Show("Please specify the Employer name.", "Unspecified Employer Name", 
@@ -102,6 +93,7 @@ namespace HR.SSS.R3
             }
 
             R3Session.IsHeaderPresent = ChkIsHeaderPresent.IsChecked.Value;
+            R3Session.OutputFileName = RandomCodeGenerator.AssignCode(R3Session);
             R3Session.R3Records = new List<R3Record>();
             return true;
         }
@@ -148,7 +140,11 @@ namespace HR.SSS.R3
             LblEmployeesCount.Content = R3Session.R3Records.Count;
 
             LblTotalAmountLabel.Opacity = 100;
-            LblTotalAmount.Content = totalAmount;
+            LblTotalAmount.Content = String.Format("{0:n}", totalAmount);
+
+            var bc = new BrushConverter();
+            TxtOutputFileName.Background = (Brush)bc.ConvertFrom("#FF3BEA20");
+            TxtOutputFileName.Text = R3Session.OutputFileName;
 
             this.OpenOutputFile();
         }
