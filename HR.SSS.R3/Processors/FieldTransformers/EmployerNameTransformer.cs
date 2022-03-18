@@ -6,20 +6,20 @@ using System.Text;
 
 namespace HR.SSS.R3.Processors.FieldTransformers
 {
-    public class EmployerNameTransformer : FieldTransformer, IFieldTransformable
+    public class EmployerNameTransformer : FieldTransformer<string>, IFieldTransformable
     {
-        readonly R3SessionContainer _r3Session;
+        private readonly string EmployerName;
 
-        public EmployerNameTransformer(R3SessionContainer r3Session) : base(r3Session)
+        public EmployerNameTransformer(string employerName) : base(employerName)
         {
-            this._r3Session = r3Session;
+            this.EmployerName = employerName;
         }
 
         public string TransformField()
         {
             // Convert to uppercase
-            string employerName = this._r3Session.EmployerName.ToUpper();
-            var fieldCount = this._r3Session.EmployerName.Length;
+            string employerName = this.EmployerName.ToUpper();
+            var fieldCount = this.EmployerName.Length;
 
             // Truncate if more than max length
             if (fieldCount > OutputFileConstants.EmployerNameMaxLength)

@@ -27,7 +27,7 @@ namespace HR.SSS.R3.Processors
                 // Create a new file     
                 using (StreamWriter sw = File.CreateText(outputFile))
                 {
-                    EmployerNameTransformer employerNameTransformer = new EmployerNameTransformer(r3Session);
+                    EmployerNameTransformer employerNameTransformer = new EmployerNameTransformer(r3Session.EmployerName);
                     sw.Write(employerNameTransformer.TransformField());
 
                     EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer(r3Session);

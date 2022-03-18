@@ -2,8 +2,8 @@
 
 namespace HR.SSS.R3.Processors.Abstracts
 {
-    public abstract class FieldTransformer
+    public abstract class FieldTransformer<T>
     {
-        public FieldTransformer(R3SessionContainer r3Session) { }
+        public FieldTransformer(T parameter) { }
     }
 }
