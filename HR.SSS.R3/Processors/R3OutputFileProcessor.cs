@@ -33,30 +33,44 @@ namespace HR.SSS.R3.Processors
                     EmployerNumberTransformer employerNumberTransformer = new EmployerNumberTransformer(r3Session);
                     sw.WriteLine(employerNumberTransformer.TransformField());
 
+                    HeaderTransformer headerTransformer = new HeaderTransformer();
+                    sw.WriteLine(headerTransformer.TransformString());
+
                     DateTransformer dateTransformer = new DateTransformer();
                     sw.WriteLine(dateTransformer.TransformString());
                     sw.WriteLine();
 
                     foreach (var r3Record in r3Session.R3Records)
                     {
-                        FamilyNameTransformer familyNameTransformer = new FamilyNameTransformer(r3Session);
-                        //sw.WriteLine(familyNameTransformer.TransformField(r3Record.FamilyName));
-                    }
-                    
-                    sw.WriteLine("Add one more line ");
-                    sw.WriteLine("Add one more line ");
-                    sw.WriteLine("Done! ");
-                }
+                        FamilyNameTransformer familyNameTransformer = new FamilyNameTransformer(r3Record.FamilyName);
+                        sw.Write(familyNameTransformer.TransformField());
 
-                // Write file contents on console.     
-                using (StreamReader sr = File.OpenText(outputFile))
-                {
-                    string s = "";
-                    while ((s = sr.ReadLine()) != null)
-                    {
-                        Console.WriteLine(s);
+                        GivenNameTransformer givenNameTransformer = new GivenNameTransformer(r3Record.GivenName);
+                        sw.Write(givenNameTransformer.TransformField());
+
+                        MiddleInitialTransformer middleInitialTransformer = new MiddleInitialTransformer(r3Record.MiddleInitial);
+                        sw.Write(middleInitialTransformer.TransformField());
+
+                        SssNumberTransformer sssNumberTransformer = new SssNumberTransformer(r3Record.SssNumber);
+                        sw.Write(sssNumberTransformer.TransformField());
+
+                        SssContributionTransformer sssContributionTransformer = new SssContributionTransformer(r3Record.SssContribution);
+                        sw.Write(sssContributionTransformer.TransformField());
+
+                        EcAmountTransformer ecAmountTransformer = new EcAmountTransformer(r3Record.EcAmount);
+                        sw.Write(ecAmountTransformer.TransformField());
+
+                        RemarkTransformer remarkTransformer = new RemarkTransformer(r3Record.Remark);
+                        sw.Write(remarkTransformer.TransformField());
+
+                        DateHiredTransformer dateHiredTransformer = new DateHiredTransformer(r3Record.DateHired);
+                        sw.Write(dateHiredTransformer.TransformField());
+
+                        sw.WriteLine();
                     }
                 }
+                
+
             }
             catch (Exception Ex)
             {

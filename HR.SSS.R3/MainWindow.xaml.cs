@@ -3,6 +3,7 @@ using HR.SSS.R3.Processors;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 
 namespace HR.SSS.R3
@@ -26,6 +27,8 @@ namespace HR.SSS.R3
             {
                 R3ExcelFileProcessor.CaptureExcelRecords(R3Session);
                 R3OutputFileProcessor.CreateOutputFile(R3Session);
+
+                this.CompleteProcess();
             }
         }
 
@@ -120,6 +123,31 @@ namespace HR.SSS.R3
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             App.Current.MainWindow.Close();
+        }
+
+        private void OpenOutputFile()
+        {
+            var process = new Process();
+            process.StartInfo = new ProcessStartInfo($"{ R3Session.InputDirectory }\\{ R3Session.OutputFileName }")
+            {
+                UseShellExecute = true
+            };
+            process.Start();
+        }
+
+        private void CompleteProcess()
+        {
+            double totalAmount = 0;
+
+            foreach (var r3Record in R3Session.R3Records)
+            {
+                totalAmount += Convert.ToDouble(r3Record.SssContribution);
+            }
+
+            LblEmployeesCount.Content = R3Session.R3Records.Count;
+            LblTotalAmount.Content = totalAmount;
+
+            this.OpenOutputFile();
         }
     }
 }

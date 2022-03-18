@@ -18,9 +18,9 @@
         <TextBox x:Name="TxtEmployerName" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="436" Canvas.Left="148" Canvas.Top="212" Text="DIVERSIFY ISS BGC INC."/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="37" Stroke="#FFA0A0A0" VerticalAlignment="Top" Width="436" Canvas.Left="148" Canvas.Top="383"/>
         <Label Content="Total Number of Employees:" HorizontalAlignment="Right" Width="170" Opacity="0.5" Height="32" VerticalAlignment="Top" Canvas.Left="156" Canvas.Top="388"/>
-        <Label Content="Total Amount:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="86" Opacity="0.5" Canvas.Left="347" Canvas.Top="388"/>
-        <Label x:Name="LblEmployeesCount" Content="" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="33" Canvas.Left="313" Canvas.Top="388"/>
-        <Label x:Name="LblTotalAmount" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="147" Canvas.Left="437" Canvas.Top="388"/>
+        <Label Content="Total Amount:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="86" Opacity="0.5" Canvas.Left="361" Canvas.Top="388"/>
+        <Label x:Name="LblEmployeesCount" Content="" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="43" Canvas.Left="313" Canvas.Top="388"/>
+        <Label x:Name="LblTotalAmount" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="137" Canvas.Left="447" Canvas.Top="388"/>
         <Label Content="Transforms an Excel File to a format compliant for SSS R3 submission" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="11" Height="25" Width="350" Canvas.Left="144" Canvas.Top="42"/>
         <Image HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="44" Source="records.png" Canvas.Left="86" Canvas.Top="20"/>
         <Label Content="© Copyright. SSSR3FTT v1.0.0 BAR 2022" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="185" Canvas.Left="277" Canvas.Top="443" Opacity="0.5" FontSize="10"/>
