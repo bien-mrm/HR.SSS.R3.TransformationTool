@@ -1,6 +1,6 @@
 ﻿using HR.SSS.R3.Models;
 
-namespace HR.SSS.R3.Transformers.Abstracts
+namespace HR.SSS.R3.Extractors.Abstracts
 {
     public abstract class FieldTransformer<T>
     {

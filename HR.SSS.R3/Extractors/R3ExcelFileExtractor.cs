@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Windows;
 
-namespace HR.SSS.R3.Transformers
+namespace HR.SSS.R3.Extractors
 {
     public static class R3ExcelFileExtractor
     {

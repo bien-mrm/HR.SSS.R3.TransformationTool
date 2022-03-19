@@ -1,19 +1,27 @@
 ﻿using HR.SSS.R3.Models;
-using HR.SSS.R3.Transformers.EmployeeList.FieldTransformers;
-using HR.SSS.R3.Transformers.EmployeeList.StringTransformers;
+using HR.SSS.R3.Extractors.EmployeeList.FieldTransformers;
+using HR.SSS.R3.Extractors.EmployeeList.StringTransformers;
 using System;
 using System.IO;
+using HR.SSS.R3.Constants;
 
-namespace HR.SSS.R3.Transformers
+namespace HR.SSS.R3.Extractors
 {
     public static class R3OutputFileProcessor
     {
         public static void CreateOutputFile(R3SessionContainer r3Session)
         {
+            string outputFolder = $"{ r3Session.InputDirectory }\\{ OutputType.R3OutputFile }";
             string outputFile = $"{ r3Session.InputDirectory }\\{ r3Session.OutputFileName }";
 
             try
             {
+                // R3 Output folder
+                if (!Directory.Exists(outputFolder))
+                {
+                    Directory.CreateDirectory(outputFolder);
+                }
+
                 // Check if file already exists. If yes, delete it.     
                 if (File.Exists(outputFile))
                 {

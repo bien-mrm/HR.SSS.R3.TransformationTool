@@ -1,6 +1,6 @@
-﻿using HR.SSS.R3.Transformers.Interfaces;
+﻿using HR.SSS.R3.Extractors.Interfaces;
 
-namespace HR.SSS.R3.Transformers.EmployeeList.StringTransformers
+namespace HR.SSS.R3.Extractors.EmployeeList.StringTransformers
 {
     public class HeaderTransformer : IStringTransformable
     {

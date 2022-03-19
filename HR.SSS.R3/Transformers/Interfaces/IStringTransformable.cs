@@ -1,4 +1,4 @@
-﻿namespace HR.SSS.R3.Transformers.Interfaces
+﻿namespace HR.SSS.R3.Extractors.Interfaces
 {
     interface IStringTransformable
     {

@@ -1,9 +1,9 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Transformers.Abstracts;
-using HR.SSS.R3.Transformers.Interfaces;
+using HR.SSS.R3.Extractors.Abstracts;
+using HR.SSS.R3.Extractors.Interfaces;
 using System.Text;
 
-namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
 {
     class SssNumberTransformer : FieldTransformer<string>, IFieldTransformable
     {

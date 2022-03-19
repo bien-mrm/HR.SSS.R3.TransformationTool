@@ -1,7 +1,7 @@
-﻿using HR.SSS.R3.Transformers.Interfaces;
+﻿using HR.SSS.R3.Extractors.Interfaces;
 using System;
 
-namespace HR.SSS.R3.Transformers.EmployeeList.StringTransformers
+namespace HR.SSS.R3.Extractors.EmployeeList.StringTransformers
 {
     public class DateTransformer : IStringTransformable
     {

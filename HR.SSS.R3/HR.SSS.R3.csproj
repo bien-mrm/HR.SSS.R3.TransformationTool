@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constants\OutputType.cs" />
     <Compile Include="Transformers\Abstracts\FieldTransformer.cs" />
     <Compile Include="Transformers\EmployeeList\FieldTransformers\EcAmountTransformer.cs" />
     <Compile Include="Transformers\EmployeeList\FieldTransformers\DateHiredTransformer.cs" />
@@ -106,7 +107,7 @@
     <Compile Include="Models\R3Record.cs" />
     <Compile Include="Models\R3SessionContainer.cs" />
     <Compile Include="Transformers\Interfaces\IFieldTransformable.cs" />
-    <Compile Include="Processors\R3ExcelFileExtractor.cs" />
+    <Compile Include="Extractors\R3ExcelFileExtractor.cs" />
     <Compile Include="Processors\R3EmployeeListProcessor.cs" />
     <Compile Include="Transformers\EmployeeList\FieldTransformers\EmployerNameTransformer.cs" />
     <Compile Include="Transformers\EmployeeList\FieldTransformers\EmployerNumberTransformer.cs" />

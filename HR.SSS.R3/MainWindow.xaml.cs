@@ -1,5 +1,5 @@
 ﻿using HR.SSS.R3.Models;
-using HR.SSS.R3.Transformers;
+using HR.SSS.R3.Extractors;
 using HR.SSS.R3.Utilities;
 using Microsoft.Win32;
 using System;
@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
+using HR.SSS.R3.Constants;
 
 namespace HR.SSS.R3
 {
@@ -27,27 +28,27 @@ namespace HR.SSS.R3
 
         private void BtnGenerateEmployeeList_Click(object sender, RoutedEventArgs e)
         {
-            if (this.SetupSessionValues())
+            if (this.SetupSessionValues(OutputType.R3EmployeeList))
             {
                 R3ExcelFileExtractor.CaptureExcelRecords(R3Session);
                 R3EmployeeListProcessor.CreateOutputFile(R3Session);
 
-                this.CompleteProcess();
+                this.CompleteProcess(OutputType.R3EmployeeList);
             }
         }
 
         private void BtnGenerateR3Output_Click(object sender, RoutedEventArgs e)
         {
-            if (this.SetupSessionValues())
+            if (this.SetupSessionValues(OutputType.R3OutputFile))
             {
                 R3ExcelFileExtractor.CaptureExcelRecords(R3Session);
                 R3OutputFileProcessor.CreateOutputFile(R3Session);
 
-                this.CompleteProcess();
+                this.CompleteProcess(OutputType.R3OutputFile);
             }
         }
 
-        private bool SetupSessionValues()
+        private bool SetupSessionValues(string type)
         {
             if (String.IsNullOrEmpty(TxtInputFile.Text))
             {
@@ -82,6 +83,17 @@ namespace HR.SSS.R3
                 R3Session.EmployerName = TxtEmployerName.Text;
             }
 
+            if (type == OutputType.R3OutputFile && String.IsNullOrEmpty(TxtEmployerTrn.Text))
+            {
+                MessageBox.Show("Please specify the Transaction number.", "Unspecified Transaction Number",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else
+            {
+                R3Session.EmployerName = TxtEmployerName.Text;
+            }
+
             if (String.IsNullOrEmpty(TxtEmployerNumber.Text))
             {
                 MessageBox.Show("Please specify the Employer Number.", "Unspecified Employer Number",
@@ -92,7 +104,6 @@ namespace HR.SSS.R3
             {
                 R3Session.EmployerNumber = TxtEmployerNumber.Text;
             }
-
 
             if (String.IsNullOrEmpty(TxtApplicablePeriod.Text))
             {
@@ -167,7 +178,7 @@ namespace HR.SSS.R3
             process.Start();
         }
 
-        private void CompleteProcess()
+        private void CompleteProcess(string type)
         {
             double totalAmount = 0;
 
@@ -180,11 +191,11 @@ namespace HR.SSS.R3
             LblEmployeesCount.Content = R3Session.R3Records.Count;
 
             LblTotalAmountLabel.Opacity = 100;
-            LblTotalAmount.Content = $"₱ { String.Format("{0:n}", totalAmount) }";
+            LblTotalAmount.Content = $"₱{ String.Format("{0:n}", totalAmount) }";
 
             var bc = new BrushConverter();
-            TxtOutputFileName.Background = (Brush)bc.ConvertFrom("#FF3BEA20");
-            TxtOutputFileName.Text = R3Session.OutputFileName;
+            TxtOutputFileName.Background = (Brush)bc.ConvertFrom("#FFA8FFB0"); //#FFA8FFB0
+            TxtOutputFileName.Text = $"{ R3Session.InputDirectory }\\{ type }\\{ R3Session.OutputFileName }";
 
             this.OpenOutputFile();
         }
