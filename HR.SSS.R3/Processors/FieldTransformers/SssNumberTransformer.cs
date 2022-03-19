@@ -22,10 +22,9 @@ namespace HR.SSS.R3.Processors.FieldTransformers
             }
 
             // Convert to uppercase
-            string sssNumberFinal = this.SssNumber.Insert(2, "-");
-            sssNumberFinal = sssNumberFinal.Insert(9, "-");
+            string sssNumberFinal = this.SssNumber.Length == 9 ? $"0{ this.SssNumber }" : this.SssNumber; 
+            sssNumberFinal = sssNumberFinal.Insert(2, "-").Insert(10, "-");
             var sssNumberFieldLength = sssNumberFinal.Length;
-
 
             // Truncate if more than max length
             if (sssNumberFieldLength > OutputFileConstants.SssNumberMaxLength)

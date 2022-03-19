@@ -20,7 +20,7 @@ namespace HR.SSS.R3.Processors.FieldTransformers
             string dateHiredFinal = this.DateHired != null ? this.DateHired.ToUpper() : "";
 
             // Remember to add an extra space as column separation
-            return $"{ dateHiredFinal } ";
+            return $"{ dateHiredFinal }";
         }
     }
 }

@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>records.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EPPlus, Version=5.8.7.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>packages\EPPlus.5.8.7\lib\net45\EPPlus.dll</HintPath>
@@ -81,8 +84,7 @@
     <Compile Include="Processors\Interfaces\IStringTransformable.cs" />
     <Compile Include="Processors\StringTransformers\HeaderTransformer.cs" />
     <Compile Include="Processors\StringTransformers\DateTransformer.cs" />
-    <Compile Include="Utilities\RandomCodeGenerator.cs" />
-    <Compile Include="Utilities\Randomizer.cs" />
+    <Compile Include="Utilities\OutputFileNameGenerator.cs" />
     <Compile Include="Utilities\StringSanitizer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +138,8 @@
   <ItemGroup>
     <Resource Include="records.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="records.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

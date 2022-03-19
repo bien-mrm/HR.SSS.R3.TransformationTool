@@ -93,7 +93,7 @@ namespace HR.SSS.R3
             }
 
             R3Session.IsHeaderPresent = ChkIsHeaderPresent.IsChecked.Value;
-            R3Session.OutputFileName = RandomCodeGenerator.AssignCode(R3Session);
+            R3Session.OutputFileName = OutputFileNameGenerator.AssignCode(R3Session);
             R3Session.R3Records = new List<R3Record>();
             return true;
         }
@@ -140,7 +140,7 @@ namespace HR.SSS.R3
             LblEmployeesCount.Content = R3Session.R3Records.Count;
 
             LblTotalAmountLabel.Opacity = 100;
-            LblTotalAmount.Content = String.Format("{0:n}", totalAmount);
+            LblTotalAmount.Content = $"₱ { String.Format("{0:n}", totalAmount) }";
 
             var bc = new BrushConverter();
             TxtOutputFileName.Background = (Brush)bc.ConvertFrom("#FF3BEA20");
