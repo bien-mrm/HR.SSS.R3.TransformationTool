@@ -1,15 +1,15 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using System.Text;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class SssNumberTransformer : FieldTransformer<string>, IFieldTransformable
+    class ELSssNumberTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string SssNumber;
 
-        public SssNumberTransformer(string sssNumber) : base(sssNumber)
+        public ELSssNumberTransformer(string sssNumber) : base(sssNumber)
         {
             this.SssNumber = sssNumber;
         }
@@ -27,15 +27,15 @@ namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
             var sssNumberFieldLength = sssNumberFinal.Length;
 
             // Truncate if more than max length
-            if (sssNumberFieldLength > OutputFileConstants.SssNumberMaxLength)
+            if (sssNumberFieldLength > EmployeeListConstants.SssNumberMaxLength)
             {
-                sssNumberFinal = sssNumberFinal.Substring(0, OutputFileConstants.SssNumberMaxLength);
+                sssNumberFinal = sssNumberFinal.Substring(0, EmployeeListConstants.SssNumberMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (sssNumberFieldLength < OutputFileConstants.SssNumberMaxLength)
+            else if (sssNumberFieldLength < EmployeeListConstants.SssNumberMaxLength)
             {
-                int difference = OutputFileConstants.SssNumberMaxLength - sssNumberFieldLength;
+                int difference = EmployeeListConstants.SssNumberMaxLength - sssNumberFieldLength;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(sssNumberFinal);
 

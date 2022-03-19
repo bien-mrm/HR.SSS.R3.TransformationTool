@@ -1,6 +1,6 @@
 ﻿namespace HR.SSS.R3.Constants
 {
-    public static class OutputFileConstants
+    public static class EmployeeListConstants
     {
         public static int EmployerNameMaxLength => 30;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HR.SSS.R3.Constants
 {
-    public static class OutputType
+    public static class OutputTypeConstants
     {
         public static string R3EmployeeList => "R3 Employee List";
 

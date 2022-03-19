@@ -1,15 +1,15 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using System.Text;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class EcAmountTransformer : FieldTransformer<string>, IFieldTransformable
+    class ELEcAmountTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string EcAmount;
 
-        public EcAmountTransformer(string ecAmount) : base(ecAmount)
+        public ELEcAmountTransformer(string ecAmount) : base(ecAmount)
         {
             this.EcAmount = ecAmount;
         }
@@ -21,15 +21,15 @@ namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
 
 
             // Truncate if more than max length
-            if (ecAmountFieldLength > OutputFileConstants.EcAmountMaxLength)
+            if (ecAmountFieldLength > EmployeeListConstants.EcAmountMaxLength)
             {
-                emAmountFinal = emAmountFinal.Substring(0, OutputFileConstants.EcAmountMaxLength);
+                emAmountFinal = emAmountFinal.Substring(0, EmployeeListConstants.EcAmountMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (ecAmountFieldLength < OutputFileConstants.EcAmountMaxLength)
+            else if (ecAmountFieldLength < EmployeeListConstants.EcAmountMaxLength)
             {
-                int difference = OutputFileConstants.EcAmountMaxLength - ecAmountFieldLength;
+                int difference = EmployeeListConstants.EcAmountMaxLength - ecAmountFieldLength;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(emAmountFinal);
 

@@ -56,6 +56,9 @@ namespace HR.SSS.R3.Extractors
                             Remark = remark,
                             DateHired = dateHired
                         });
+
+                        // Incrementally add all SSS Contributions to a total amount
+                        r3Session.TotalAmount += Convert.ToDouble(sssContribution);
                     }
                 }
             }

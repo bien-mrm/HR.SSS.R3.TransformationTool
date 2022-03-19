@@ -1,16 +1,16 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using HR.SSS.R3.Utilities;
 using System.Text;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    public class EmployerNameTransformer : FieldTransformer<string>, IFieldTransformable
+    public class ELEmployerNameTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string EmployerName;
 
-        public EmployerNameTransformer(string employerName) : base(employerName)
+        public ELEmployerNameTransformer(string employerName) : base(employerName)
         {
             this.EmployerName = employerName;
         }
@@ -22,15 +22,15 @@ namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
             var fieldCount = this.EmployerName.Length;
 
             // Truncate if more than max length
-            if (fieldCount > OutputFileConstants.EmployerNameMaxLength)
+            if (fieldCount > EmployeeListConstants.EmployerNameMaxLength)
             {
-                employerName = employerName.Substring(0, OutputFileConstants.EmployerNameMaxLength);
+                employerName = employerName.Substring(0, EmployeeListConstants.EmployerNameMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (fieldCount < OutputFileConstants.EmployerNameMaxLength)
+            else if (fieldCount < EmployeeListConstants.EmployerNameMaxLength)
             {
-                int difference = OutputFileConstants.EmployerNameMaxLength - fieldCount;
+                int difference = EmployeeListConstants.EmployerNameMaxLength - fieldCount;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(employerName);
 

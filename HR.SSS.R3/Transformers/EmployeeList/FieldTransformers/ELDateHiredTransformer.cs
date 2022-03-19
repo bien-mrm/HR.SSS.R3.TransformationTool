@@ -1,15 +1,13 @@
-﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
-using System.Text;
+﻿using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class DateHiredTransformer : FieldTransformer<string>, IFieldTransformable
+    class ELDateHiredTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string DateHired;
 
-        public DateHiredTransformer(string dateHired) : base(dateHired)
+        public ELDateHiredTransformer(string dateHired) : base(dateHired)
         {
             this.DateHired = dateHired;
         }

@@ -1,15 +1,15 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using System.Text;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class RemarkTransformer : FieldTransformer<string>, IFieldTransformable
+    class ELRemarkTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string Remark;
 
-        public RemarkTransformer(string remark) : base(remark)
+        public ELRemarkTransformer(string remark) : base(remark)
         {
             this.Remark = remark;
         }
@@ -22,15 +22,15 @@ namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
 
 
             // Truncate if more than max length
-            if (remarkFieldLength > OutputFileConstants.RemarkMaxLength)
+            if (remarkFieldLength > EmployeeListConstants.RemarkMaxLength)
             {
-                remarkFinal = remarkFinal.Substring(0, OutputFileConstants.RemarkMaxLength);
+                remarkFinal = remarkFinal.Substring(0, EmployeeListConstants.RemarkMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (remarkFieldLength < OutputFileConstants.RemarkMaxLength)
+            else if (remarkFieldLength < EmployeeListConstants.RemarkMaxLength)
             {
-                int difference = OutputFileConstants.RemarkMaxLength - remarkFieldLength;
+                int difference = EmployeeListConstants.RemarkMaxLength - remarkFieldLength;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(remarkFinal);
 

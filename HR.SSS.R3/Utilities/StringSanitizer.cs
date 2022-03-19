@@ -4,7 +4,7 @@
     {
         public static string ReplaceNcharacters(this string str)
         {
-            return str.Replace("Ñ", "N");
+            return str.Replace("Ñ", "N").Replace("ñ", "n");
         }
     }
 }

@@ -1,15 +1,15 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using System.Text;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class SssContributionTransformer : FieldTransformer<string>, IFieldTransformable
+    class ELSssContributionTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string SssContribution;
 
-        public SssContributionTransformer(string sssContribution) : base(sssContribution)
+        public ELSssContributionTransformer(string sssContribution) : base(sssContribution)
         {
             this.SssContribution = sssContribution;
         }
@@ -21,15 +21,15 @@ namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
 
 
             // Truncate if more than max length
-            if (sssContributionFieldLength > OutputFileConstants.SssContributionMaxLength)
+            if (sssContributionFieldLength > EmployeeListConstants.SssContributionMaxLength)
             {
-                sssContributionFinal = sssContributionFinal.Substring(0, OutputFileConstants.SssContributionMaxLength);
+                sssContributionFinal = sssContributionFinal.Substring(0, EmployeeListConstants.SssContributionMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (sssContributionFieldLength < OutputFileConstants.SssContributionMaxLength)
+            else if (sssContributionFieldLength < EmployeeListConstants.SssContributionMaxLength)
             {
-                int difference = OutputFileConstants.SssContributionMaxLength - sssContributionFieldLength;
+                int difference = EmployeeListConstants.SssContributionMaxLength - sssContributionFieldLength;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(sssContributionFinal);
 

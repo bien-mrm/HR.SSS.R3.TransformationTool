@@ -1,16 +1,16 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Extractors.Abstracts;
-using HR.SSS.R3.Extractors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using HR.SSS.R3.Utilities;
 using System.Text;
 
-namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class MiddleInitialTransformer : FieldTransformer<string>, IFieldTransformable
+    class ELMiddleInitialTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string MiddleInitial;
 
-        public MiddleInitialTransformer(string middleInitial) : base(middleInitial)
+        public ELMiddleInitialTransformer(string middleInitial) : base(middleInitial)
         {
             this.MiddleInitial = middleInitial;
         }
@@ -23,15 +23,15 @@ namespace HR.SSS.R3.Extractors.EmployeeList.FieldTransformers
 
 
             // Truncate if more than max length
-            if (middleInitialFieldLength > OutputFileConstants.MiddleInitialMaxLength)
+            if (middleInitialFieldLength > EmployeeListConstants.MiddleInitialMaxLength)
             {
-                middleInitialFinal = middleInitialFinal.Substring(0, OutputFileConstants.MiddleInitialMaxLength);
+                middleInitialFinal = middleInitialFinal.Substring(0, EmployeeListConstants.MiddleInitialMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (middleInitialFieldLength < OutputFileConstants.MiddleInitialMaxLength)
+            else if (middleInitialFieldLength < EmployeeListConstants.MiddleInitialMaxLength)
             {
-                int difference = OutputFileConstants.MiddleInitialMaxLength - middleInitialFieldLength;
+                int difference = EmployeeListConstants.MiddleInitialMaxLength - middleInitialFieldLength;
                 StringBuilder sb = new StringBuilder();
                 sb.Append(middleInitialFinal);
 

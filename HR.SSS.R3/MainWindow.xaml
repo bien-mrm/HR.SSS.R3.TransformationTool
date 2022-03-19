@@ -29,15 +29,15 @@
         <Label Content="Source Sheet Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="116" Canvas.Left="65" Canvas.Top="127"/>
         <CheckBox x:Name="ChkIsHeaderPresent" Content="Header row is present in the sheet" Canvas.Left="492" Canvas.Top="134" IsChecked="True"/>
         <Label Content="Employer SSS Number:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="133" Canvas.Left="55" Canvas.Top="239"/>
-        <TextBox x:Name="TxtEmployerNumber" Padding="2" Height="24" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="193" Canvas.Top="241" Text=""/>
+        <TextBox x:Name="TxtEmployerNumber" Padding="2" Height="24" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="193" Canvas.Top="241" Text="" MaxLength="10"/>
         <Label Content="Applicable Period:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="109" Canvas.Left="79" Canvas.Top="319"/>
-        <TextBox x:Name="TxtApplicablePeriod" Padding="2" Height="24" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="193" Canvas.Top="321" Text=""/>
+        <TextBox x:Name="TxtApplicablePeriod" Padding="2" Height="24" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="193" Canvas.Top="321" Text="" MaxLength="6"/>
         <Label Content="Format: 10 numbers without dashes" Canvas.Left="486" Canvas.Top="239" Opacity="0.8"/>
         <Label Content="Date Format: 6 numbers MMddyy" Canvas.Left="486" Canvas.Top="319" Opacity="0.8"/>
         <Button x:Name="BtnGenerateR3Output" Content="Generate R3 Output File" VerticalAlignment="Top" Click="BtnGenerateR3Output_Click" Height="40" IsCancel="True" FontWeight="Bold" HorizontalAlignment="Right" Width="297" Canvas.Left="492" Canvas.Top="361" FontSize="13" BorderBrush="Black"/>
         <Separator Height="24" Canvas.Left="32" Margin="0" Canvas.Top="170" Width="758" Background="#FFE0E0E0"/>
         <Label Content="Transaction Number (TRN):" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="156" Canvas.Left="32" Canvas.Top="280"/>
-        <TextBox x:Name="TxtEmployerTrn" Padding="2" Height="24" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="193" Canvas.Top="282" Text=""/>
+        <TextBox x:Name="TxtTransactionNumber" Padding="2" Height="24" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="285" Canvas.Left="193" Canvas.Top="282" Text="" MaxLength="15"/>
         <Label Content="Format: 15 numbers without dashes" Canvas.Left="486" Canvas.Top="280" Opacity="0.8"/>
     </Canvas>
 </Window>
