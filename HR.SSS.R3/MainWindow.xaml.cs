@@ -1,5 +1,5 @@
 ﻿using HR.SSS.R3.Models;
-using HR.SSS.R3.Processors;
+using HR.SSS.R3.Transformers;
 using HR.SSS.R3.Utilities;
 using Microsoft.Win32;
 using System;
@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
 
 namespace HR.SSS.R3
 {
@@ -23,11 +25,22 @@ namespace HR.SSS.R3
             R3Session = new R3SessionContainer();
         }
 
-        private void BtnGenerate_Click(object sender, RoutedEventArgs e)
+        private void BtnGenerateEmployeeList_Click(object sender, RoutedEventArgs e)
         {
             if (this.SetupSessionValues())
             {
-                R3ExcelFileProcessor.CaptureExcelRecords(R3Session);
+                R3ExcelFileExtractor.CaptureExcelRecords(R3Session);
+                R3EmployeeListProcessor.CreateOutputFile(R3Session);
+
+                this.CompleteProcess();
+            }
+        }
+
+        private void BtnGenerateR3Output_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.SetupSessionValues())
+            {
+                R3ExcelFileExtractor.CaptureExcelRecords(R3Session);
                 R3OutputFileProcessor.CreateOutputFile(R3Session);
 
                 this.CompleteProcess();
@@ -115,6 +128,33 @@ namespace HR.SSS.R3
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             App.Current.MainWindow.Close();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TextBoxPasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(String)))
+            {
+                String text = (String)e.DataObject.GetData(typeof(String));
+                if (!IsTextAllowed(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+        private static bool IsTextAllowed(string text)
+        {
+            Regex _regex = new Regex("[^0-9.-]+");
+            return !_regex.IsMatch(text);
         }
 
         private void OpenOutputFile()

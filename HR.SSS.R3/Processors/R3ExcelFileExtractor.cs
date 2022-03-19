@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using System.Windows;
 
-namespace HR.SSS.R3.Processors
+namespace HR.SSS.R3.Transformers
 {
-    public static class R3ExcelFileProcessor
+    public static class R3ExcelFileExtractor
     {
         public static void CaptureExcelRecords(R3SessionContainer r3Session)
         {

@@ -6,7 +6,7 @@ using System.IO;
 
 namespace HR.SSS.R3.Transformers
 {
-    public static class R3OutputFileProcessor
+    public static class R3EmployeeListProcessor
     {
         public static void CreateOutputFile(R3SessionContainer r3Session)
         {
@@ -20,7 +20,7 @@ namespace HR.SSS.R3.Transformers
                     File.Delete(outputFile);
                 }
 
-                // Create a new file
+                // Create a new file     
                 using (StreamWriter sw = File.CreateText(outputFile))
                 {
                     EmployerNameTransformer employerNameTransformer = new EmployerNameTransformer(r3Session.EmployerName);

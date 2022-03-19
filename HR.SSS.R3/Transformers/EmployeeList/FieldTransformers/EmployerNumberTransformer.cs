@@ -1,7 +1,7 @@
-﻿using HR.SSS.R3.Processors.Abstracts;
-using HR.SSS.R3.Processors.Interfaces;
+﻿using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 
-namespace HR.SSS.R3.Processors.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
     public class EmployerNumberTransformer : FieldTransformer<string>, IFieldTransformable
     {

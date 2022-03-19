@@ -1,11 +1,6 @@
-﻿using HR.SSS.R3.Processors.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HR.SSS.R3.Transformers.Interfaces;
 
-namespace HR.SSS.R3.Processors.StringTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.StringTransformers
 {
     public class HeaderTransformer : IStringTransformable
     {

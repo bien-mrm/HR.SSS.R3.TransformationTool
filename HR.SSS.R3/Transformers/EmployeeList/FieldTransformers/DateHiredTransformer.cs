@@ -1,9 +1,9 @@
 ﻿using HR.SSS.R3.Constants;
-using HR.SSS.R3.Processors.Abstracts;
-using HR.SSS.R3.Processors.Interfaces;
+using HR.SSS.R3.Transformers.Abstracts;
+using HR.SSS.R3.Transformers.Interfaces;
 using System.Text;
 
-namespace HR.SSS.R3.Processors.FieldTransformers
+namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
     class DateHiredTransformer : FieldTransformer<string>, IFieldTransformable
     {
