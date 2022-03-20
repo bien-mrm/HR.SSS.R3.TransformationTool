@@ -8,6 +8,14 @@
 
         public static int FamilyNameMaxLength => 15;
 
+        public static int GivenNameMaxLength => 15;
+
+        public static int MiddleInitialMaxLength => 1;
+
+        public static int SssNumberMaxLength => 10;
+
+        public static int EcAmountMaxLength => 11;
+
         public static string NormalDateHired => "N0";
 
         public static class Numbers
@@ -20,7 +28,7 @@
 
             public static string Extension00 => ".00";
 
-            public static string ZeroValues => "0.00";
+            public static string ZeroAmount => "0.00";
         }
     }
 }

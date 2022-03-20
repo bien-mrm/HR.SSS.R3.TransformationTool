@@ -6,11 +6,11 @@ using System.Text;
 
 namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class ELGivenNameTransformer : FieldTransformer<string>, IFieldTransformable
+    class R3GivenNameTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string GivenName;
 
-        public ELGivenNameTransformer(string givenName) : base(givenName)
+        public R3GivenNameTransformer(string givenName) : base(givenName)
         {
             this.GivenName = givenName;
         }
@@ -23,20 +23,20 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 
 
             // Truncate if more than max length
-            if (givenNameFieldLength > EmployeeListConstants.GivenNameMaxLength)
+            if (givenNameFieldLength > R3OutputFileConstants.GivenNameMaxLength)
             {
-                givenNameFinal = givenNameFinal.Substring(0, EmployeeListConstants.GivenNameMaxLength);
+                givenNameFinal = givenNameFinal.Substring(0, R3OutputFileConstants.GivenNameMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (givenNameFieldLength < EmployeeListConstants.GivenNameMaxLength)
+            else if (givenNameFieldLength < R3OutputFileConstants.GivenNameMaxLength)
             {
-                int difference = EmployeeListConstants.GivenNameMaxLength - givenNameFieldLength;
+                int difference = R3OutputFileConstants.GivenNameMaxLength - givenNameFieldLength;
                 givenNameFinal = givenNameFinal.AddSpace(difference);
             }
 
             // Remember to add an extra space as column separation
-            return $"{ givenNameFinal } ";
+            return givenNameFinal;
         }
     }
 }

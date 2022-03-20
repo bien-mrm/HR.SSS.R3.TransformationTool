@@ -6,35 +6,34 @@ using System.Text;
 
 namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
-    class ELEcAmountTransformer : FieldTransformer<string>, IFieldTransformable
+    class R3EcAmountTransformer : FieldTransformer<string>, IFieldTransformable
     {
         private readonly string EcAmount;
 
-        public ELEcAmountTransformer(string ecAmount) : base(ecAmount)
+        public R3EcAmountTransformer(string ecAmount) : base(ecAmount)
         {
             this.EcAmount = ecAmount;
         }
 
         public string TransformField()
         {
-            string ecAmountFinal = $"{ this.EcAmount }.00";
+            string ecAmountFinal = $"{ this.EcAmount }{ R3OutputFileConstants.Numbers.Extension00}";
             var ecAmountFieldLength = ecAmountFinal.Length;
 
             // Truncate if more than max length
-            if (ecAmountFieldLength > EmployeeListConstants.EcAmountMaxLength)
+            if (ecAmountFieldLength > R3OutputFileConstants.EcAmountMaxLength)
             {
-                ecAmountFinal = ecAmountFinal.Substring(0, EmployeeListConstants.EcAmountMaxLength);
+                ecAmountFinal = ecAmountFinal.Substring(0, R3OutputFileConstants.EcAmountMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (ecAmountFieldLength < EmployeeListConstants.EcAmountMaxLength)
+            else if (ecAmountFieldLength < R3OutputFileConstants.EcAmountMaxLength)
             {
-                int difference = EmployeeListConstants.EcAmountMaxLength - ecAmountFieldLength;
+                int difference = R3OutputFileConstants.EcAmountMaxLength - ecAmountFieldLength;
                 ecAmountFinal = ecAmountFinal.AddSpace(difference);
             }
 
-            // Remember to add an extra space as column separation
-            return $"{ ecAmountFinal } ";
+            return ecAmountFinal;
         }
     }
 }

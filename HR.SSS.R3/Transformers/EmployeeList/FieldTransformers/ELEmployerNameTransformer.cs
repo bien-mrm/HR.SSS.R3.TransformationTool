@@ -31,15 +31,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
             else if (fieldCount < EmployeeListConstants.EmployerNameMaxLength)
             {
                 int difference = EmployeeListConstants.EmployerNameMaxLength - fieldCount;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(employerName);
-
-                for (int i = 0; i < difference; i++)
-                {
-                    sb.Append(" ");
-                }
-
-                employerName = sb.ToString();
+                employerName = employerName.AddSpace(difference);
             }
 
             // Remember to add an extra space as column separation

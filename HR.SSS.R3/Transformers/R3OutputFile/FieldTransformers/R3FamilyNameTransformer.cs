@@ -31,15 +31,7 @@ namespace HR.SSS.R3.Transformers.R3OutputFile.FieldTransformers
             else if (familyNameFieldLength < R3OutputFileConstants.FamilyNameMaxLength)
             {
                 int difference = R3OutputFileConstants.FamilyNameMaxLength - familyNameFieldLength;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(familyNameFinal);
-
-                for (int i = 0; i < difference; i++)
-                {
-                    sb.Append(" ");
-                }
-
-                familyNameFinal = sb.ToString();
+                familyNameFinal = familyNameFinal.AddSpace(difference);
             }
 
             return familyNameFinal;

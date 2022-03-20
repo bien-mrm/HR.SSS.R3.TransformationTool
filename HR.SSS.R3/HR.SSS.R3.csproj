@@ -87,9 +87,17 @@
     <Compile Include="Processors\R3OutputFileProcessor.cs" />
     <Compile Include="Transformers\EmployeeList\StringTransformers\ELHeaderTransformer.cs" />
     <Compile Include="Transformers\EmployeeList\StringTransformers\ELDateTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3TotalTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3SssNumberTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3EcAmountTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3MiddleInitialTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3GivenNameTransformer.cs" />
     <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3FamilyNameTransformer.cs" />
     <Compile Include="Transformers\R3OutputFile\FieldTransformers\R3TransactionCodeTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\StringTransformers\R3AmountTransformer.cs" />
+    <Compile Include="Transformers\R3OutputFile\StringTransformers\R3NormalTransformer.cs" />
     <Compile Include="Utilities\OutputFileNameGenerator.cs" />
+    <Compile Include="Utilities\SpaceProvider.cs" />
     <Compile Include="Utilities\SplitCamelCaseExtension.cs" />
     <Compile Include="Utilities\StringSanitizer.cs" />
     <Page Include="MainWindow.xaml">
@@ -147,8 +155,6 @@
   <ItemGroup>
     <Resource Include="records.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Transformers\R3OutputFile\StringTransformers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

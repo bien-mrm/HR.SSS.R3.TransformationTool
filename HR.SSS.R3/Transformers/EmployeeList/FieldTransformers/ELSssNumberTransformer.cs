@@ -1,6 +1,7 @@
 ﻿using HR.SSS.R3.Constants;
 using HR.SSS.R3.Transformers.Abstracts;
 using HR.SSS.R3.Transformers.Interfaces;
+using HR.SSS.R3.Utilities;
 using System.Text;
 
 namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
@@ -18,7 +19,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
         {
             if (this.SssNumber == null)
             {
-                return "               ";
+                return SpaceProvider.AddSpace(15);
             }
 
             // Convert to uppercase
@@ -36,15 +37,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
             else if (sssNumberFieldLength < EmployeeListConstants.SssNumberMaxLength)
             {
                 int difference = EmployeeListConstants.SssNumberMaxLength - sssNumberFieldLength;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(sssNumberFinal);
-
-                for (int i = 0; i < difference; i++)
-                {
-                    sb.Append(" ");
-                }
-
-                sssNumberFinal = sb.ToString();
+                sssNumberFinal = sssNumberFinal.AddSpace(difference);
             }
 
             // Remember to add an extra space as column separation

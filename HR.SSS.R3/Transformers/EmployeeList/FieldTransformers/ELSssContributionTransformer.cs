@@ -1,7 +1,7 @@
 ﻿using HR.SSS.R3.Constants;
 using HR.SSS.R3.Transformers.Abstracts;
 using HR.SSS.R3.Transformers.Interfaces;
-using System.Text;
+using HR.SSS.R3.Utilities;
 
 namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
@@ -30,15 +30,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
             else if (sssContributionFieldLength < EmployeeListConstants.SssContributionMaxLength)
             {
                 int difference = EmployeeListConstants.SssContributionMaxLength - sssContributionFieldLength;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(sssContributionFinal);
-
-                for (int i = 0; i < difference; i++)
-                {
-                    sb.Append(" ");
-                }
-
-                sssContributionFinal = sb.ToString();
+                sssContributionFinal = sssContributionFinal.AddSpace(difference);
             }
 
             // Remember to add an extra space as column separation

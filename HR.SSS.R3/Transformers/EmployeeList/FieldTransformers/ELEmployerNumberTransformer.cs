@@ -14,9 +14,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 
         public string TransformField()
         {
-            string code = $"[{ this.OutputFileName }]";
-
-            return code;
+            return $"[{ this.OutputFileName }]";
         }
     }
 }

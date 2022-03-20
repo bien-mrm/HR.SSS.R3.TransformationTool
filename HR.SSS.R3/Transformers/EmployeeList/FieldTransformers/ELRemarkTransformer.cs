@@ -1,7 +1,7 @@
 ﻿using HR.SSS.R3.Constants;
 using HR.SSS.R3.Transformers.Abstracts;
 using HR.SSS.R3.Transformers.Interfaces;
-using System.Text;
+using HR.SSS.R3.Utilities;
 
 namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
@@ -31,15 +31,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
             else if (remarkFieldLength < EmployeeListConstants.RemarkMaxLength)
             {
                 int difference = EmployeeListConstants.RemarkMaxLength - remarkFieldLength;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(remarkFinal);
-
-                for (int i = 0; i < difference; i++)
-                {
-                    sb.Append(" ");
-                }
-
-                remarkFinal = sb.ToString();
+                remarkFinal = remarkFinal.AddSpace(difference);
             }
 
             // Remember to add an extra space as column separation

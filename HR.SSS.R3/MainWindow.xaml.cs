@@ -50,6 +50,7 @@ namespace HR.SSS.R3
 
         private bool SetupSessionValues(string type)
         {
+            // Initialize again after the session has been flushed
             if (R3Session == null)
             {
                 R3Session = new R3SessionContainer();

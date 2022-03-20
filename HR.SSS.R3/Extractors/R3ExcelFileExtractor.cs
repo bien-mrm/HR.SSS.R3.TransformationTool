@@ -57,13 +57,16 @@ namespace HR.SSS.R3.Extractors
                             DateHired = dateHired
                         });
 
-                        // Incrementally add all SSS Contributions to a total amount
+                        // Incrementally add all SSS Contributions and EC Amount for total
                         r3Session.TotalAmount += Convert.ToDouble(sssContribution);
+                        r3Session.TotalEcAmount += Convert.ToDouble(ecAmount);
                     }
                 }
             }
             catch (InvalidOperationException ioe)
             {
+                Console.WriteLine(ioe.Message);
+
                 // Prompt user to close Excel editor
                 string title = "File Used by Another Process";
                 string message = "Please close any editor that is currently reading your Excel file (e.g. Microsoft Excel) or make sure that it is not set as Read-Only then click the submit button again.";

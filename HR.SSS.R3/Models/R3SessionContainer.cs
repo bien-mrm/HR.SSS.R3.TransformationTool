@@ -24,6 +24,8 @@ namespace HR.SSS.R3.Models
 
         public double TotalAmount { get; set; }
 
+        public double TotalEcAmount { get; set; }
+
         public List<R3Record> R3Records { get; set; }
 
     }

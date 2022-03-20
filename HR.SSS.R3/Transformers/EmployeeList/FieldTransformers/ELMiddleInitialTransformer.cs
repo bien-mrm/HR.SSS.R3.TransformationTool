@@ -2,7 +2,7 @@
 using HR.SSS.R3.Transformers.Abstracts;
 using HR.SSS.R3.Transformers.Interfaces;
 using HR.SSS.R3.Utilities;
-using System.Text;
+using System;
 
 namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 {
@@ -18,33 +18,23 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
         public string TransformField()
         {
             // Convert to uppercase
-            string middleInitialFinal = this.MiddleInitial != null ? this.MiddleInitial.ToUpper() : "";
-            var middleInitialFieldLength = this.MiddleInitial != null ? this.MiddleInitial.Length : 0;
-
+            string middleInitialFinal = !String.IsNullOrEmpty(this.MiddleInitial) ? this.MiddleInitial.ReplaceNcharacters().ToUpper() : "";
 
             // Truncate if more than max length
-            if (middleInitialFieldLength > EmployeeListConstants.MiddleInitialMaxLength)
+            if (middleInitialFinal.Length > EmployeeListConstants.MiddleInitialMaxLength)
             {
                 middleInitialFinal = middleInitialFinal.Substring(0, EmployeeListConstants.MiddleInitialMaxLength);
             }
 
             // If less than max length, add spaces until max length
-            else if (middleInitialFieldLength < EmployeeListConstants.MiddleInitialMaxLength)
+            else if (middleInitialFinal.Length < EmployeeListConstants.MiddleInitialMaxLength)
             {
-                int difference = EmployeeListConstants.MiddleInitialMaxLength - middleInitialFieldLength;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(middleInitialFinal);
-
-                for (int i = 0; i < difference; i++)
-                {
-                    sb.Append(" ");
-                }
-
-                middleInitialFinal = sb.ToString();
+                int difference = EmployeeListConstants.MiddleInitialMaxLength - middleInitialFinal.Length;
+                middleInitialFinal = middleInitialFinal.AddSpace(difference);
             }
 
             // Remember to add an extra space as column separation
-            return $"{ middleInitialFinal.ReplaceNcharacters() } ";
+            return $"{ middleInitialFinal } ";
         }
     }
 }

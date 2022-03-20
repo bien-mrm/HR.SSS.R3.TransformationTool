@@ -14,11 +14,7 @@ namespace HR.SSS.R3.Transformers.EmployeeList.FieldTransformers
 
         public string TransformField()
         {
-            // Convert to uppercase
-            string dateHiredFinal = this.DateHired != null ? this.DateHired.ToUpper() : "";
-
-            // Remember to add an extra space as column separation
-            return $"{ dateHiredFinal }";
+            return this.DateHired != null ? this.DateHired.ToUpper() : "";
         }
     }
 }
